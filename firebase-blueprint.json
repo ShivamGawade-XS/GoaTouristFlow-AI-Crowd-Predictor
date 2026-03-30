@@ -1,0 +1,42 @@
+# Database Schema (Conceptual for this applet)
+# Using Firebase-like structure for simplicity in this environment if requested, 
+# but the prompt asks for PostgreSQL/TimescaleDB/Redis. 
+# I will simulate the API responses to match the expected PostgreSQL/TimescaleDB schema.
+
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "Platform user",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "email": { "type": "string", "format": "email" },
+        "role": { "type": "string", "enum": ["user", "admin"] }
+      }
+    },
+    "Beach": {
+      "title": "Beach",
+      "description": "Coastal destination",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "location": { "type": "object" },
+        "currentCDS": { "type": "number" },
+        "status": { "type": "string" }
+      }
+    },
+    "CrowdReport": {
+      "title": "CrowdReport",
+      "description": "User submitted crowd rating",
+      "type": "object",
+      "properties": {
+        "beachId": { "type": "string" },
+        "userId": { "type": "string" },
+        "rating": { "type": "string", "enum": ["low", "med", "high"] },
+        "timestamp": { "type": "string", "format": "date-time" }
+      }
+    }
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Goa CDS - Crowd Intelligence",
+  "description": "Real-time crowd density intelligence and predictive analytics for Goa's coastline.",
+  "requestFramePermissions": ["geolocation"]
+}
