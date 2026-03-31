@@ -1,0 +1,269 @@
+.beach-card {
+  background: linear-gradient(135deg, rgba(30, 41, 59, 0.8) 0%, rgba(15, 23, 42, 0.7) 100%);
+  border: 1px solid rgba(14, 165, 233, 0.2);
+  border-radius: 16px;
+  padding: 2rem;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(12px);
+  position: relative;
+  overflow: hidden;
+}
+
+.beach-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.05), transparent);
+  transition: left 0.5s ease;
+  pointer-events: none;
+}
+
+.beach-card:hover::before {
+  left: 100%;
+}
+
+.beach-card:hover {
+  border-color: rgba(6, 182, 212, 0.6);
+  background: linear-gradient(135deg, rgba(30, 41, 59, 0.95) 0%, rgba(15, 23, 42, 0.85) 100%);
+  transform: translateY(-8px) scale(1.01);
+  box-shadow: 0 20px 50px rgba(14, 165, 233, 0.25), 0 0 30px rgba(6, 182, 212, 0.15);
+}
+
+.beach-card.expanded {
+  box-shadow: 0 30px 70px rgba(14, 165, 233, 0.3), 0 0 40px rgba(6, 182, 212, 0.2);
+  border-color: #0ea5e9;
+  background: linear-gradient(135deg, rgba(30, 41, 59, 0.98) 0%, rgba(15, 23, 42, 0.92) 100%);
+  transform: scale(1.02);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  gap: 1rem;
+}
+
+.card-header h3 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #0ea5e9 0%, #06b6d4 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin: 0;
+  letter-spacing: -0.5px;
+}
+
+.crowd-status {
+  font-size: 2.5rem;
+  animation: pulse 2s ease-in-out infinite;
+  flex-shrink: 0;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+.crowd-indicator {
+  margin-bottom: 2rem;
+}
+
+.crowd-bar-container {
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 12px;
+  height: 28px;
+  overflow: hidden;
+  margin-bottom: 0.75rem;
+  border: 1px solid rgba(14, 165, 233, 0.2);
+  position: relative;
+}
+
+.crowd-bar {
+  height: 100%;
+  transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 11px;
+  position: relative;
+}
+
+.crowd-bar::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  border-radius: 11px;
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.crowd-score {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #cbd5e1;
+  margin: 0;
+  text-align: right;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1rem;
+  background: rgba(15, 23, 42, 0.5);
+  border-radius: 10px;
+  border: 1px solid rgba(14, 165, 233, 0.15);
+  transition: all 0.3s ease;
+}
+
+.info-item:hover {
+  background: rgba(15, 23, 42, 0.7);
+  border-color: rgba(14, 165, 233, 0.3);
+  transform: translateY(-2px);
+}
+
+.info-item .label {
+  font-size: 0.75rem;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  font-weight: 600;
+}
+
+.info-item .value {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #e2e8f0;
+}
+
+.recommendation {
+  background: linear-gradient(135deg, rgba(14, 165, 233, 0.15) 0%, rgba(6, 182, 212, 0.1) 100%);
+  border-left: 4px solid #0ea5e9;
+  padding: 1.25rem;
+  border-radius: 10px;
+  margin-bottom: 1.5rem;
+  border: 1px solid rgba(14, 165, 233, 0.2);
+  transition: all 0.3s ease;
+}
+
+.recommendation:hover {
+  border-color: rgba(6, 182, 212, 0.5);
+  background: linear-gradient(135deg, rgba(14, 165, 233, 0.2) 0%, rgba(6, 182, 212, 0.15) 100%);
+}
+
+.rec-title {
+  font-size: 0.9rem;
+  color: #0ea5e9;
+  margin: 0 0 0.75rem 0;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.rec-text {
+  font-size: 0.95rem;
+  color: #cbd5e1;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.expanded-details {
+  border-top: 1px solid rgba(14, 165, 233, 0.2);
+  padding-top: 1.5rem;
+  margin-top: 1.5rem;
+  animation: expandDown 0.4s ease-out;
+}
+
+@keyframes expandDown {
+  from {
+    opacity: 0;
+    max-height: 0;
+  }
+  to {
+    opacity: 1;
+    max-height: 500px;
+  }
+}
+
+.detail-section {
+  margin-bottom: 1.25rem;
+  padding: 1rem;
+  background: rgba(15, 23, 42, 0.5);
+  border-radius: 10px;
+  border: 1px solid rgba(14, 165, 233, 0.15);
+}
+
+.detail-section h4 {
+  color: #0ea5e9;
+  font-size: 1rem;
+  margin: 0 0 0.5rem 0;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.detail-section p {
+  color: #cbd5e1;
+  font-size: 0.95rem;
+  margin: 0;
+  line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+  .beach-card {
+    padding: 1.5rem;
+  }
+
+  .card-header h3 {
+    font-size: 1.2rem;
+  }
+
+  .info-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .crowd-bar-container {
+    height: 24px;
+  }
+}
+
+@media (max-width: 640px) {
+  .beach-card {
+    padding: 1rem;
+  }
+
+  .crowd-status {
+    font-size: 2rem;
+  }
+
+  .info-item {
+    padding: 0.75rem;
+  }
+}
